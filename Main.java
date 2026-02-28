@@ -1,16 +1,18 @@
-import java.util.ArrayList;
 import java.util.Scanner;
+
+import interfaces.Actions;
+import manager.TaskManager;
+import ui.Prompt;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Tarefa> tarefas = new ArrayList<>();
-        int proximoId = 0;
-
         Scanner scanner = new Scanner(System.in);
+        Actions manager = new TaskManager(scanner);
+
         int opcao = 0;
 
         while (opcao != 5) {
-            mostrarMenu();
+            Prompt.mostrarPrompt();
             System.out.println("Escolha uma opção: ");
 
             if (scanner.hasNextInt()) {
@@ -19,19 +21,21 @@ public class Main {
                 switch (opcao) {
                     case 1:
                         scanner.nextLine();
-                        TarefaManager.criarTarefa(tarefas, scanner, proximoId++);
+                        manager.create();
                         break;
                     case 2:
-                        TarefaManager.listarTarefas(tarefas);
+                        manager.list();
                         break;
                     case 3:
-                        // ! Ação
+                        scanner.nextLine();
+                        manager.edit();
                         break;
                     case 4:
-                        // ! Ação
+                        scanner.nextLine();
+                        manager.remove();
                         break;
                     case 5:
-                        // ! Ação
+                        scanner.close();
                         break;
                     default:
                         System.out.println("Opção inválida! Tente novamente.");
@@ -42,15 +46,5 @@ public class Main {
                 opcao = -1;
             }
         }
-        scanner.close();
     }
-
-    public static void mostrarMenu() {
-        System.out.println("1. Criar tarefa");
-        System.out.println("2. Listar tarefa");
-        System.out.println("3. Editar tarefa");
-        System.out.println("4. Excluir tarefa");
-        System.out.println("5. Sair");
-    }
-
 }

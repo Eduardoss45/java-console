@@ -1,6 +1,5 @@
 # Desafio Técnico: Mini Sistema de Gerenciamento de Tarefas (Java Console)
 
-**Data de Início:** `dd/mm/aaaa`
 **Data de Expiração:** 14 dias após início
 
 ## Objetivo
