@@ -1,4 +1,5 @@
 package ui;
+
 public class Prompt {
     public static void mostrarPrompt() {
         System.out.println("1. Criar tarefa");
