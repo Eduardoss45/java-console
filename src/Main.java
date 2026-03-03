@@ -1,24 +1,24 @@
 import java.util.Scanner;
 
 import interfaces.Actions;
-import manager.TaskManager;
+import services.TaksService;
 import ui.Prompt;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Actions manager = new TaskManager(scanner);
+        Actions manager = new TaksService(scanner);
 
-        int opcao = 0;
+        int option = 0;
 
-        while (opcao != 5) {
-            Prompt.mostrarPrompt();
+        while (option != 5) {
+            Prompt.showPrompt();
             System.out.println("Escolha uma opção: ");
 
             if (scanner.hasNextInt()) {
-                opcao = scanner.nextInt();
+                option = scanner.nextInt();
 
-                switch (opcao) {
+                switch (option) {
                     case 1:
                         scanner.nextLine();
                         manager.create();
@@ -43,7 +43,7 @@ public class Main {
             } else {
                 System.out.println("Por favor, digite um número válido.");
                 scanner.next();
-                opcao = -1;
+                option = -1;
             }
         }
     }

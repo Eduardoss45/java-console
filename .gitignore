@@ -1,0 +1,12 @@
+# Compilados Java
+*.class
+
+# Pasta de build (se você estiver usando /out)
+out/
+
+# Logs
+*.log
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
